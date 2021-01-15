@@ -25,7 +25,7 @@ https://www.youtube.com/c/DrawlNag
 `.trim(), m)
 }
 handler.help = ['tutorial']
-handler.tags = ['about']
+handler.tags = ['jadibot']
 handler.command = /^(tutorial)$/i
 handler.owner = false
 handler.mods = false

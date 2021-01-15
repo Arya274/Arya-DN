@@ -18,7 +18,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 ╠═〘 DONASI 〙 ═
 ╠➥ SmartFren: 0882-3543-5804
 ╠➥ Tsel: 0813-5730-2007
-╠➥ Tsel: 0815-1586-0089
+╠➥ Indosat: 0815-1586-0089
 ║
 ║>Request? Wa.me/6288235435804
 ║
@@ -26,7 +26,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 `.trim(), m)
 }
 handler.help = ['info']
-handler.tags = ['about']
+handler.tags = ['main']
 handler.command = /^(info)$/i
 handler.owner = false
 handler.mods = false
