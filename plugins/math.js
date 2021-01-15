@@ -1,14 +1,14 @@
 global.math = global.math ? global.math : {}
 let handler  = async (m, { conn, args, usedPrefix }) => {
   if (args.length < 1) return conn.reply(m.chat, 'Mode: noob | easy | medium | hard | extreme\n\nContoh penggunaan: ' + usedPrefix + 'math medium', m)
-  let mode = args[0].toLowercase()
+  let mode = args[0].toLowerCase()
   if (!(mode in modes)) return conn.reply(m.chat, 'Mode: noob | easy | medium | hard | extreme\n\nContoh penggunaan: ' + usedPrefix + 'math medium', m)
   let id = m.chat
   if (id in global.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', global.math[id][0])
   let math = genMath(mode)
   global.math[id] = [
     await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\nTimeout: ${math.time.toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
-    math, 4
+    math, 4,
     setTimeout(() => {
       if (global.math[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, global.math[id][0])
       delete global.math[id]
@@ -41,7 +41,7 @@ function genMath(mode) {
   let a = randomInt(a1, a2)
   let b = randomInt(b1, b2)
   let op = pickRandom([...ops])
-  let result = (new Function(`return ${a} ${op.replace('/', '*'} ${b}`))()
+  let result = (new Function(`return ${a} ${op.replace('/', '*')} ${b}`))()
   if (op == '/') [a, result] = [result, a]
   return {
     str: `${a} ${operators[op]} ${b}`,
