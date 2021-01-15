@@ -1,6 +1,8 @@
 # Nfq Bot
 Simple WhatsApp Bot
 
+Bye @Nurotomo
+
 ### FOR TERMUX USER
 ```bash
 > pkg update && pkg upgrade
