@@ -10,9 +10,9 @@ Ketik di *[TERMUX]*
 4) $pkg install nodejs
 
 Untuk Githubnya..
-5) $git clone https://github.com/Arya274/Arya-Bot
+5) $git clone https://github.com/Arya274/Arya-DN
 6) $ls
-7) $cd Arya-Bot
+7) $cd Arya-DN
 
 yang *terakhirr*..
 Penginstalannya cuy :)
@@ -25,7 +25,7 @@ https://www.youtube.com/c/DrawlNag
 `.trim(), m)
 }
 handler.help = ['tutorial']
-handler.tags = ['jadibot']
+handler.tags = ['about']
 handler.command = /^(tutorial)$/i
 handler.owner = false
 handler.mods = false
