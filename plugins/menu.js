@@ -5,8 +5,8 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let name = conn.getName(m.sender)
     let d = new Date
     let locale = 'id'
-    let gmt = new Date(0) - new Date('1 January 1970')
-    let weton = ['Pon','Wage','Kliwon','Legi','Pahing'][Math.floor((d + gmt) / 84600000) % 5]
+    let gmt = new Date(0).getTime() - new Date('1 January 1970').getTime()
+    let weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
       day: 'numeric',
@@ -18,7 +18,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       minute: 'numeric',
       second: 'numeric'
     })
-    let _uptime = new Date(process.uptime() * 1000)
+    let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
     let tags = {
       'main': 'Main',
@@ -28,6 +28,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'quotes': 'Quotes',
       'admin': 'Admin',
       'group': 'Group',
+      'internet': 'Internet',
       'downloader': 'Downloader',
       'tools': 'Tools',
       'jadibot': 'Jadi Bot',
@@ -57,17 +58,17 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
           if (menu.help) groups[tag].push(menu)
     }
     conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*%exp XP*\n*%limit Limit*\n*%week %weton, %date*\n*%time*\n_Uptime: %uptime\n%readmore`
+    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*%exp XP*\n*%limit Limit*\n*%week %weton, %date*\n*%time*\n_Uptime: %uptime_\n%readmore`
     let header = conn.menu.header || '╭─「 %category 」'
     let body   = conn.menu.body   || '│ • %cmd%islimit'
     let footer = conn.menu.footer || '╰────\n'
-    let after  = conn.menu.after  || conn.user.jid == global.conn.user.jid ? '' : `\nPowered by https://wa.me${global.conn.user.jid}`
+    let after  = conn.menu.after  || conn.user.jid == global.conn.user.jid ? '' : `\nPowered by https://wa.me/${global.conn.user.jid.split`@`[0]}`
     let _text  = before + '\n'
     for (let tag in groups) {
       _text += header.replace(/%category/g, tags[tag]) + '\n'
       for (let menu of groups[tag]) {
         for (let help of menu.help)
-          _text += body.replace(/%cmd/g, menu.prefix ? help : '%p' + help).replace(/%islimit/g, menu.limit ? ' (Limit)' : 'https://github.com/Arya274/Arya-Bot')  + '\n'
+          _text += body.replace(/%cmd/g, menu.prefix ? help : '%p' + help).replace(/%islimit/g, menu.limit ? ' (Limit)' : '')  + '\n'
       }
       _text += footer + '\n'
     }
@@ -75,7 +76,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     text =  typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
     let replace = {
       '%': '%',
-      p: _p, uptime: _uptime,
+      p: _p, uptime,
       exp, limit, name, weton, week, date, time,
       readmore: readMore
     }
@@ -99,12 +100,17 @@ handler.admin = false
 handler.botAdmin = false
 
 handler.fail = null
+handler.exp = 3
 
 module.exports = handler
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
-function clockString(date) {
-  return ['getHours','getMinutes','getSeconds'].map(method => date[method]().toString().padStart(2, 0)).join`:`
+function clockString(ms) {
+  let h = Math.floor(ms / 3600000)
+  let m = Math.floor(ms / 60000) % 60
+  let s = Math.floor(ms / 1000) % 60
+  console.log({ms,h,m,s})
+  return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
