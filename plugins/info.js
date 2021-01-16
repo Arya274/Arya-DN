@@ -5,7 +5,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 ╠➥ Rec: Drawl Nag
 ╠➥ Script: @Nurotomo
 ║
-╠➥ Github: https://github.com/Arya274/Arya-Bot
+╠➥ Github: https://github.com/Arya274/Arya-DN
 ╠➥ Instagram: @arpunchs
 ╠➥ YouTube: Drawl Nag
 ║
@@ -26,7 +26,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 `.trim(), m)
 }
 handler.help = ['info']
-handler.tags = ['main']
+handler.tags = ['about']
 handler.command = /^(info)$/i
 handler.owner = false
 handler.mods = false
