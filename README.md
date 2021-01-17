@@ -35,4 +35,5 @@ Simple WhatsApp Bot
 > Instagram: @arpunchs
 > YouTube: Drawl Nag
 > WhatsApp: 0882-3543-5804
+> Credit: Nurotomo
 ```
