@@ -22,7 +22,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let uptime = clockString(_uptime)
     let tags = {
       'main': 'Main',
-      'about': 'About and Info',
+      'about': 'About Owner',
       'xp': 'Exp & Limit',
       'sticker': 'Sticker',
       'kerang': 'Kerang Ajaib',
@@ -60,7 +60,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
           if (menu.help) groups[tag].push(menu)
     }
     conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*Total:* %exp XP\n\n*Limit Anda: %limit*\n\n*Tanggal: %week, %date*\n *Waktu:%time*\nUptime: %uptime\n\n *Github:*\nhttps://github.com/Arya274/Arya-DN\n _Script Bye: @Nurotomo_\n%readmore`
+    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*Total:* %exp XP\n\n*Limit Anda: %limit*\n\n*Tanggal: %week, %date*\n *Waktu:%time*\nUptime: %uptime\n\n *Github:*\nhttps://github.com/Arya274/Arya-DN\n _Script Bye: @Nurotomo_\n`
     let header = conn.menu.header || '╭─「 %category 」'
     let body   = conn.menu.body   || '│➥ %cmd%islimit'
     let footer = conn.menu.footer || '╰────\n'
