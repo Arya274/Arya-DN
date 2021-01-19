@@ -10,8 +10,8 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['broadcastjadibot','bcbot'].map(v => v + ' <teks>')
 handler.tags = ['host']
 handler.command = /^(broadcast|bc)(jadi)?bot$/i
-handler.owner = true
-handler.mods = false
+handler.owner = false
+handler.mods = true
 handler.premium = false
 handler.group = false
 handler.private = false

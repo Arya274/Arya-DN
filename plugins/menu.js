@@ -20,9 +20,9 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     })
     let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
+    let totalreg = Object.keys(global.DATABASE._data.users).length
     let tags = {
       'main': 'Main',
-      'about': 'About Owner',
       'xp': 'Exp & Limit',
       'sticker': 'Sticker',
       'kerang': 'Kerang Ajaib',
@@ -30,7 +30,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'admin': 'Admin',
       'group': 'Group',
       'internet': 'Internet',
-      'game': 'My Game',
       'downloader': 'Downloader',
       'tools': 'Tools',
       'jadibot': 'Jadi Bot',
@@ -60,9 +59,9 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
           if (menu.help) groups[tag].push(menu)
     }
     conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*Total:* %exp XP\n\n*Limit Anda: %limit*\n\n*Tanggal: %week, %date*\n *Waktu:%time*\nUptime: %uptime\n\n *Github:*\nhttps://github.com/Arya274/Arya-DN\n _Script Bye: @Nurotomo_\n\n🔰JOIN GRUP🔰\nhttps://chat.whatsapp.com/GFYq7Dtug968lgsky8jayL\n`
+    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*%exp XP*\n*%limit Limit*\n*%week %weton, %date*\n*%time*\n_Uptime: %uptime_\n%totalreg User in database\n%readmore`
     let header = conn.menu.header || '╭─「 %category 」'
-    let body   = conn.menu.body   || '│➥ %cmd%islimit'
+    let body   = conn.menu.body   || '│ • %cmd%islimit'
     let footer = conn.menu.footer || '╰────\n'
     let after  = conn.menu.after  || conn.user.jid == global.conn.user.jid ? '' : `\nPowered by https://wa.me/${global.conn.user.jid.split`@`[0]}`
     let _text  = before + '\n'
@@ -79,7 +78,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let replace = {
       '%': '%',
       p: _p, uptime,
-      exp, limit, name, weton, week, date, time,
+      exp, limit, name, weton, week, date, time, totalreg,
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
