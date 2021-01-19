@@ -2,7 +2,7 @@ let handler = async (m, { conn, text }) => {
   conn.hartatahta = conn.hartatahta ? conn.hartatahta : {}
   if (m.chat in conn.hartatahta) throw 'Masih ada yang sedang membuat\nTeks Harta Tahta\ndi chat ini... tunggu sampai selesai'
   else conn.hartatahta[m.chat] = true
-  m.reply('_Sedang membuat..._\n*sedang diproses.. Mohon tunggu sekitar 1 menit*')
+  m.reply('_Sedang membuat..._\n*Mohon tunggu sekitar 1 menit*\n Delaynya cuy? @arpunchs')
   try {
     let img = await ht(text ? text : ':v')
     conn.sendFile(m.chat, img, 'Harta Tahta.png', 'Credit: *© Nurutomo*\nMade with FFmpeg', m)
