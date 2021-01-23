@@ -34,5 +34,5 @@ Simple WhatsApp Bot
 > node index.js
 ```
 
-# About
+# About 🖇️
 Youtube: Drawl Nag [`Link`](https://youtube.com/c/DrawlNag) <sosmed>
