@@ -20,13 +20,13 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 ╠➥ Tsel: 0813-5730-2007
 ╠➥ Indosat: 0815-1586-0089
 ║
-║>Request? Wa.me/6288235435804
+║>Request? Wa.me/6281357302007
 ║
 ╠═〘 NfQ BOT 〙 ═
 `.trim(), m)
 }
 handler.help = ['info']
-handler.tags = ['about']
+handler.tags = ['info']
 handler.command = /^(info)$/i
 handler.owner = false
 handler.mods = false
