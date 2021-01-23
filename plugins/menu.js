@@ -23,7 +23,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let totalreg = Object.keys(global.DATABASE._data.users).length
     let tags = {
       'main': 'Main',
-      'about': 'About And Info',
+      'info': 'Info BOT',
       'xp': 'Exp & Limit',
       'sticker': 'Sticker',
       'kerang': 'Kerang Ajaib',
@@ -37,7 +37,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'owner': 'Owner',
       'host': 'Host',
       'advanced': 'Advanced',
-      'info': 'Info',
       '': 'No Category',
     }
     for (let plugin of Object.values(global.plugins))
@@ -60,7 +59,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
           if (menu.help) groups[tag].push(menu)
     }
     conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n Total: *%exp XP*\n\n*Limit Anda:* %limit\n*Tanggal:* *%week, %date*\n Waktu: *%time*\n_Uptime: %uptime_\n*Banyak User:* %totalreg\n\nGithub:\nhttps://github.com/Arya274/Arya-DN\nScript ©Nurotomo\n\n 🔰JOIN GRUP🔰\nhttps://chat.whatsapp.com/GFYq7Dtug968lgsky8jayL\n`
+    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\nTotal: *%exp XP*\nLimit Anda: *%limit Limit*\n*Tanggal: *%week, %date*\n Waktu: *%time*\n_Uptime: %uptime_\n  %totalreg User in database\nYoutube: https://youtube.com/c/DrawlNag \n\n 🔰Github:🔰\n https://github.com/Arya274/Arya-DN \n%readmore`
     let header = conn.menu.header || '╭════•›「 %category 」'
     let body   = conn.menu.body   || '┠❥ %cmd%islimit'
     let footer = conn.menu.footer || '╰═══════════════\n'

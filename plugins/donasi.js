@@ -1,14 +1,15 @@
 let handler = async m => m.reply(`
 ╭─「 Donasi • Pulsa 」
-│ • Indosat Ooredoo [0815-1586-0089]
-│ • Telkomsel: [0813-5730-2007]
-│ • Smartfren: [0882-3543-5804]
-│ 「 Chat OWNER 」
-│ > Ingin donasi? Wa.me/6288235435804
+│ • Smartfren [088235435804]
+│ • Telkomsel [081357302007]
+│ • Gopay [081357302007]
+╰────
+╭─「 Hubungi 」
+│ > Ingin donasi? Wa.me/6281357302007
 ╰────
 `.trim()) // Tambah sendiri kalo mau
 handler.help = ['donasi']
-handler.tags = ['about']
+handler.tags = ['info']
 handler.command = /^dona(te|si)$/i
 
 module.exports = handler
