@@ -35,3 +35,4 @@ Simple WhatsApp Bot
 ```
 
 # About
+Youtube [`Click Here`](https://youtube.com/c/DrawlNag) <sosmed>
