@@ -20,7 +20,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 ╠➥ Tsel: 0813-5730-2007
 ╠➥ Indosat: 0815-1586-0089
 ║
-║>Request? Wa.me/6288235435804
+║>Request? Wa.me/+556392445315
 ║
 ╠═〘 NfQ BOT 〙 ═
 `.trim(), m)
